@@ -7,7 +7,6 @@ WITH cte_1 AS (
     FROM cte_1
 )
 
-SELECT DISTINCT company AS valuestocks
+SELECT JSON_AGG(DISTINCT company) AS valuestocks
 FROM cte_2
-WHERE fiscal_year = fyr1 - 1 AND fiscal_year = fyr2 - 2 
-ORDER BY company;
+WHERE fiscal_year = fyr1 - 1 AND fiscal_year = fyr2 - 2 ;
